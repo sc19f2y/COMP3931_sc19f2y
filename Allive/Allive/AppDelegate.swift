@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootvc = ViewController()
         let nav = UINavigationController.init(rootViewController: rootvc)
         window?.rootViewController = nav
+        sleep(2)
         return true
     }
 
