@@ -39,7 +39,7 @@ class MytolistView: UIView {
         
         footview.addSubview(AddBtn)
         AddBtn.frame = CGRect.init(x: 15, y: 15, width: 30, height: 30)
-        AddBtn.setImage(UIImage.init(named: "tianjiatianchong"), for: .normal)
+        AddBtn.setImage(UIImage.init(named: "addContent"), for: .normal)
         AddBtn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
         tableView.tableFooterView = footview
         

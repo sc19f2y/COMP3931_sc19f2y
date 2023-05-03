@@ -80,7 +80,8 @@ class ViewController: UIViewController {
         
         todoBtn.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth /  3, height: 50)
         todoBtn.setTitle("To-do", for: .normal)
-        todoBtn.setTitleColor(.black, for: .normal)
+        todoBtn.setTitleColor(.gray, for: .normal)
+        todoBtn.setTitleColor(.black, for: .selected)
         todoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         todoBtn.addTarget(self, action: #selector(todoBtnCLick), for: .touchUpInside)
         topSeletedView.addSubview(todoBtn)
@@ -92,7 +93,8 @@ class ViewController: UIViewController {
         
         expenseBtn.frame = CGRect.init(x: kScreenWidth /  3, y: 0, width: kScreenWidth /  3, height: 50)
         expenseBtn.setTitle("Expense", for: .normal)
-        expenseBtn.setTitleColor(.black, for: .normal)
+        expenseBtn.setTitleColor(.gray, for: .normal)
+        expenseBtn.setTitleColor(.black, for: .selected)
         expenseBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         expenseBtn.addTarget(self, action: #selector(expenseBtnCLick), for: .touchUpInside)
         topSeletedView.addSubview(expenseBtn)
@@ -105,7 +107,8 @@ class ViewController: UIViewController {
         
         exerciseBtn.frame = CGRect.init(x: (kScreenWidth /  3) * 2 , y: 0, width: kScreenWidth /  3, height: 50)
         exerciseBtn.setTitle("Exercise", for: .normal)
-        exerciseBtn.setTitleColor(.black, for: .normal)
+        exerciseBtn.setTitleColor(.gray, for: .normal)
+        exerciseBtn.setTitleColor(.black, for: .selected)
         exerciseBtn.addTarget(self, action: #selector(exerciseBtnCLick), for: .touchUpInside)
         exerciseBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         topSeletedView.addSubview(exerciseBtn)
@@ -121,7 +124,8 @@ class ViewController: UIViewController {
         
         yestodayBtn.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth /  3, height: 50)
         yestodayBtn.setTitle("Yestoday", for: .normal)
-        yestodayBtn.setTitleColor(.black, for: .normal)
+        yestodayBtn.setTitleColor(.gray, for: .normal)
+        yestodayBtn.setTitleColor(.black, for: .selected)
         yestodayBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         yestodayBtn.addTarget(self, action: #selector(yestodayBtnCLick), for: .touchUpInside)
         bottomView.addSubview(yestodayBtn)
@@ -133,7 +137,8 @@ class ViewController: UIViewController {
         
         todayBtn.frame = CGRect.init(x: kScreenWidth /  3, y: 0, width: kScreenWidth /  3, height: 50)
         todayBtn.setTitle("Today", for: .normal)
-        todayBtn.setTitleColor(.black, for: .normal)
+        todayBtn.setTitleColor(.gray, for: .normal)
+        todayBtn.setTitleColor(.black, for: .selected)
         todayBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         todayBtn.addTarget(self, action: #selector(todayBtnCLick), for: .touchUpInside)
         bottomView.addSubview(todayBtn)
@@ -145,7 +150,8 @@ class ViewController: UIViewController {
         
         tomorrowBtn.frame = CGRect.init(x: (kScreenWidth /  3) * 2 , y: 0, width: kScreenWidth /  3, height: 50)
         tomorrowBtn.setTitle("Tomorrow", for: .normal)
-        tomorrowBtn.setTitleColor(.black, for: .normal)
+        tomorrowBtn.setTitleColor(.gray, for: .normal)
+        tomorrowBtn.setTitleColor(.black, for: .selected)
         tomorrowBtn.addTarget(self, action: #selector(tomorrowBtnCLick), for: .touchUpInside)
         tomorrowBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         bottomView.addSubview(tomorrowBtn)
@@ -245,19 +251,29 @@ class ViewController: UIViewController {
     }
 
     @objc func todoBtnCLick(){
-        
+        todoBtn.isSelected = true
+        expenseBtn.isSelected = false
+        exerciseBtn.isSelected = false
         scollview.contentOffset =  CGPoint.init(x: 0, y: 0)
         
     }
     @objc func expenseBtnCLick(){
+        todoBtn.isSelected = false
+        expenseBtn.isSelected = true
+        exerciseBtn.isSelected = false
         scollview.contentOffset =  CGPoint.init(x: kScreenWidth, y: 0)
     }
     @objc func exerciseBtnCLick(){
+        todoBtn.isSelected = false
+        expenseBtn.isSelected = false
+        exerciseBtn.isSelected = true
         scollview.contentOffset =  CGPoint.init(x: kScreenWidth * 2, y: 0)
     }
     
     @objc func yestodayBtnCLick(){
-    
+        yestodayBtn.isSelected = true
+        todayBtn.isSelected = false
+        tomorrowBtn.isSelected = false
         
         self.tolistView.listData = []
         self.expenseView.listData = []
@@ -268,15 +284,23 @@ class ViewController: UIViewController {
     }
     
     @objc func todayBtnCLick(){
-        self.tolistView.listData = wholePreserveTool.shared().needTodoArr!
-        self.expenseView.listData = wholePreserveTool.shared().expenseArr!
-        self.exerciseView.listData = wholePreserveTool.shared().exerciseArr!
+        yestodayBtn.isSelected = false
+        todayBtn.isSelected = true
+        tomorrowBtn.isSelected = false
+        
+        self.tolistView.listData = wholePreserveTool.shared().needTodoArr ?? []
+        self.expenseView.listData = wholePreserveTool.shared().expenseArr ?? []
+        self.exerciseView.listData = wholePreserveTool.shared().exerciseArr ?? []
         self.tolistView.tableView.reloadData()
         self.expenseView.tableView.reloadData()
         self.exerciseView.tableView.reloadData()
     }
     
     @objc func tomorrowBtnCLick(){
+        yestodayBtn.isSelected = false
+        todayBtn.isSelected = false
+        tomorrowBtn.isSelected = true
+        
         self.tolistView.listData = []
         self.expenseView.listData = []
         self.exerciseView.listData = []
