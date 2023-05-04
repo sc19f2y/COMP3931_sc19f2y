@@ -123,7 +123,7 @@ class ViewController: UIViewController {
         
         
         yestodayBtn.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth /  3, height: 50)
-        yestodayBtn.setTitle("Yestoday", for: .normal)
+        yestodayBtn.setTitle("Yesterday", for: .normal)
         yestodayBtn.setTitleColor(.gray, for: .normal)
         yestodayBtn.setTitleColor(.black, for: .selected)
         yestodayBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)

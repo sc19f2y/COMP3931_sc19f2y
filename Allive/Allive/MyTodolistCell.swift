@@ -11,6 +11,8 @@ class MyTodolistCell: UITableViewCell {
 
     let leftseletedBtn = UIButton()
     let rightTitle = UILabel()
+    let deleteBtn = UIButton()
+    var deleteBtnBlock:(()->Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         makeUI()
@@ -35,8 +37,16 @@ class MyTodolistCell: UITableViewCell {
         rightTitle.font = UIFont.systemFont(ofSize: 15)
         rightTitle.textColor = UIColor.black
         
+        self.contentView.addSubview(deleteBtn)
+        deleteBtn.frame = CGRect.init(x: kScreenWidth - 50, y: 15, width: 30, height: 30)
+        deleteBtn.setImage(UIImage(named: "delete-s"), for: .normal)
+        deleteBtn.addTarget(self, action: #selector(deleteBtnCLick), for: .touchUpInside)
+        
     }
     
+    @objc func deleteBtnCLick(){
+        deleteBtnBlock?()
+    }
     func setData(text:String){
         
         rightTitle.text = text

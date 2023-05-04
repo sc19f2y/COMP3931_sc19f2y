@@ -72,6 +72,20 @@ extension MytolistView : UITableViewDelegate,UITableViewDataSource{
             
             if listData.count > 0 {
                 cell.setData(text: listData[indexPath.row].todoName)
+                cell.deleteBtnBlock = {
+                    let view  =  MessageAlertView()
+                    view.frame = CGRect.init(x: (self.frame.width - 300 )/2, y: (self.frame.height - 300 ) /  2, width: 300, height: 300)
+                    view.messageLabel.text = "Are you sure you want to delete this one?"
+                    view.cancelBlock = {
+                        
+                    }
+                    view.confirmBlock = {
+                        self.listData.remove(at: indexPath.row)
+                        tableView.reloadData()
+                    }
+                    
+                    self.addSubview(view)
+                }
             }
            
             return cell

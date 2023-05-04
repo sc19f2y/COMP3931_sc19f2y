@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C6972732A03E750001B4D01 /* MessageAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6972722A03E750001B4D01 /* MessageAlertView.swift */; };
 		3CE2D2EE2A01B1190090E94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2D2ED2A01B1190090E94B /* AppDelegate.swift */; };
 		3CE2D2F02A01B1190090E94B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2D2EF2A01B1190090E94B /* SceneDelegate.swift */; };
 		3CE2D2F22A01B1190090E94B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2D2F12A01B1190090E94B /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C6972722A03E750001B4D01 /* MessageAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAlertView.swift; sourceTree = "<group>"; };
 		3CE2D2EA2A01B1190090E94B /* Allive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE2D2ED2A01B1190090E94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CE2D2EF2A01B1190090E94B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				3CE2D3072A01B29C0090E94B /* MyexpenseViewCell.swift */,
 				3CE2D3092A01B2E60090E94B /* InputAlertView.swift */,
 				3CE2D30B2A01B2FC0090E94B /* InputAlertView2.swift */,
+				3C6972722A03E750001B4D01 /* MessageAlertView.swift */,
 				3CE2D30D2A01B3190090E94B /* wholePreserveTool.swift */,
 				3CE2D2F62A01B11A0090E94B /* Assets.xcassets */,
 				3CE2D2F82A01B11A0090E94B /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				3CE2D3062A01B2790090E94B /* MyexpenseView.swift in Sources */,
 				3CE2D30E2A01B3190090E94B /* wholePreserveTool.swift in Sources */,
 				3CE2D3022A01B22D0090E94B /* MytodolistView.swift in Sources */,
+				3C6972732A03E750001B4D01 /* MessageAlertView.swift in Sources */,
 				3CE2D2F02A01B1190090E94B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
