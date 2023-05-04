@@ -14,6 +14,7 @@ class MytolistView: UIView {
     let tableView = UITableView()
     let footview  = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 60))
     var cellrelaodBlock:(()->Void)?
+    var deleteBlock:(()->Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()

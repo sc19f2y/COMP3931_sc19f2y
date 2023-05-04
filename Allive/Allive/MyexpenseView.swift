@@ -19,6 +19,7 @@ class MyexpenseView: UIView {
     var isexpense = false
     let totalTest = UILabel()
     let totalValue = UILabel()
+    var deleteBlock:(()->Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()
@@ -117,6 +118,7 @@ extension MyexpenseView : UITableViewDelegate,UITableViewDataSource{
                     view.confirmBlock = {
                         self.listData.remove(at: indexPath.row)
                         tableView.reloadData()
+                        self.deleteBlock?()
                     }
                     
                     self.addSubview(view)

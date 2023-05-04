@@ -191,6 +191,16 @@ class ViewController: UIViewController {
         expenseView.backgroundColor = .gray
         scollview.addSubview(expenseView)
         expenseView.isexpense = true
+        expenseView.deleteBlock = {
+                var sum: Float = 0
+
+                for item in self.expenseView.listData {
+                    if let value = Float(item.myvalue) {
+                        sum += value
+                    }
+                }
+            self.expenseView.totalValue.text = "￡" + "\(sum)"
+            }
         expenseView.cellrelaodBlock = {
             
             let view  = InputAlertView2()
@@ -220,7 +230,16 @@ class ViewController: UIViewController {
         exerciseView.backgroundColor = .green
         exerciseView.isexpense = false
         scollview.addSubview(exerciseView)
-        
+        exerciseView.deleteBlock = {
+            var sum: Float = 0
+
+            for item in self.exerciseView.listData {
+                if let value = Float(item.myvalue) {
+                    sum += value
+                }
+            }
+            self.exerciseView.totalValue.text =  "\(sum)" + "mins"
+        }
         exerciseView.cellrelaodBlock = {
             
             let view  = InputAlertView2()
